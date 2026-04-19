@@ -1147,6 +1147,9 @@ class _SpecAdd:
         if not self._data:
             return
         self._selected = self._data.get(urn, None)
+        _LOGGER.warning(
+            'spec_add set_spec_async: urn=%s, found=%s', urn,
+            self._selected is not None)
         if isinstance(self._selected, str):
             return await self.set_spec_async(urn=self._selected)
 
